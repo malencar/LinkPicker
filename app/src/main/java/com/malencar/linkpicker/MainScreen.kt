@@ -53,6 +53,13 @@ fun MainScreen(
     onOpenUrl: (String) -> Unit,
 ) {
     val ctx = LocalContext.current
+    val versionLabel = remember {
+        runCatching {
+            val info = ctx.packageManager.getPackageInfo(ctx.packageName, 0)
+            val code = if (android.os.Build.VERSION.SDK_INT >= 28) info.longVersionCode else @Suppress("DEPRECATION") info.versionCode.toLong()
+            "v${info.versionName} ($code)"
+        }.getOrDefault("")
+    }
 
     // Reloaded whenever the activity resumes (refreshTick changes).
     val allBrowsers = remember(refreshTick) { BrowserRepo.installed(ctx, prefs, includeHidden = true) }
@@ -69,7 +76,18 @@ fun MainScreen(
     var testUrl by remember { mutableStateOf("https://example.com") }
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) }
+        topBar = {
+            TopAppBar(title = {
+                Column {
+                    Text(stringResource(R.string.app_name))
+                    Text(
+                        versionLabel,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            })
+        }
     ) { padding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
