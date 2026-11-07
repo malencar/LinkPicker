@@ -12,6 +12,11 @@
     <string name="no_browsers">No other browser is installed</string>
     <string name="open_failed">Couldn\'t open this browser</string>
 
+    <!-- Share target -->
+    <string name="share_target_label">Clean link (LinkPicker)</string>
+    <string name="share_cleaned_title">Link cleaned</string>
+    <string name="share_nothing_to_clean">No trackers found</string>
+
     <!-- Default browser status -->
     <string name="default_on_title">LinkPicker is your default browser</string>
     <string name="default_on_desc">Every link you tap will ask which browser to open it with.</string>

@@ -12,6 +12,11 @@
     <string name="no_browsers">Nenhum outro navegador instalado</string>
     <string name="open_failed">Não foi possível abrir este navegador</string>
 
+    <!-- Share target -->
+    <string name="share_target_label">Limpar link (LinkPicker)</string>
+    <string name="share_cleaned_title">Link limpo</string>
+    <string name="share_nothing_to_clean">Nenhum rastreador encontrado</string>
+
     <!-- Default browser status -->
     <string name="default_on_title">O LinkPicker é seu navegador padrão</string>
     <string name="default_on_desc">Todo link em que você tocar vai perguntar em qual navegador abrir.</string>

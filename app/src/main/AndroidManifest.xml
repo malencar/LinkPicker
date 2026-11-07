@@ -51,5 +51,19 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
+
+        <!-- Share target: clean tracking parameters from shared text, then copy/share it. -->
+        <activity
+            android:name=".ShareCleanActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:label="@string/share_target_label"
+            android:theme="@style/Theme.LinkPicker.Chooser">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

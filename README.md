@@ -9,7 +9,8 @@ Android app that asks **which browser to use** every time you tap a web link.
 - **Always use X for this site** – per-domain rules, managed (and removable) in the app
 - **WhatsApp vs WhatsApp Business** – for wa.me / whatsapp.com links, both installed apps are listed so you pick which one opens the chat
 - **Most-used browsers first**, plus the option to hide browsers you never use
-- **Remove tracking parameters** (utm_*, fbclid, gclid, msclkid, ...) before opening
+- **Remove tracking parameters** (utm_*, fbclid, gclid, msclkid, ...) before opening, with per-site rules for social networks (e.g. Instagram `?igsh=`, YouTube `?si=`, TikTok, X/Twitter, Facebook `mibextid`, LinkedIn, Reddit); useful parameters like YouTube's `v` and `t` are kept
+- **Clean before sharing** – pick *Clean link (LinkPicker)* in any app's Share sheet: trackers are stripped from the shared text, then you copy it or share it onward (e.g. to a WhatsApp chat)
 - Real **host shown prominently** in the picker to help spot look-alike domains
 - **Copy link / Share** from the picker
 - Optional **link history** (off by default, stored locally only)
@@ -67,7 +68,7 @@ For these links to reach LinkPicker, turn off WhatsApp's own link handling:
 
 ## Ideas for later
 
-Per-app rules (needs usage-access permission), incognito shortcuts for specific browsers, import/export of rules, handling shared text containing URLs.
+Per-app rules (needs usage-access permission), incognito shortcuts for specific browsers, import/export of rules.
 
 ## License
 
