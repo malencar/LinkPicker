@@ -24,6 +24,22 @@ Android app that asks **which browser to use** every time you tap a web link.
 
 Package: `com.malencar.linkpicker`
 
+### Building a signed release (optional)
+
+Without any setup, `assembleRelease` produces an **unsigned** APK. To sign it with your own key:
+
+1. Create a keystore **outside** the project folder, e.g. `keytool -genkeypair -keystore ~/keys/linkpicker.jks -alias linkpicker -keyalg RSA -keysize 4096 -validity 36500`.
+2. Create `keystore.properties` in the project root (it is gitignored, never commit it):
+   ```
+   storeFile=C:/Users/you/keys/linkpicker.jks
+   storePassword=...
+   keyAlias=linkpicker
+   keyPassword=...
+   ```
+3. Run `./gradlew assembleRelease`. The APK is in `app/build/outputs/apk/release/`.
+
+Back up your keystore and passwords: if you lose them you can't ship updates that install over an existing install.
+
 ## How it works
 
 - `ChooserActivity` declares a VIEW intent filter for `http`/`https` with `BROWSABLE` + `DEFAULT`. That is what makes the app selectable as the default browser and lets it receive every link.
