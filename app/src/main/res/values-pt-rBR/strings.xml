@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LinkPicker</string>
+
+    <!-- Picker -->
+    <string name="chooser_title">Abrir link com</string>
+    <string name="chooser_always_for">Sempre usar para %1$s</string>
+    <string name="copy_link">Copiar link</string>
+    <string name="share_link">Compartilhar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="link_copied">Link copiado</string>
+    <string name="no_browsers">Nenhum outro navegador instalado</string>
+    <string name="open_failed">Não foi possível abrir este navegador</string>
+
+    <!-- Default browser status -->
+    <string name="default_on_title">O LinkPicker é seu navegador padrão</string>
+    <string name="default_on_desc">Todo link em que você tocar vai perguntar em qual navegador abrir.</string>
+    <string name="default_off_title">O LinkPicker não é seu navegador padrão</string>
+    <string name="default_off_desc">Defina como padrão para que ele pergunte qual navegador usar sempre que você tocar em um link.</string>
+    <string name="set_default">Definir como navegador padrão</string>
+    <string name="open_default_settings">Configurações de apps padrão</string>
+
+    <!-- Options -->
+    <string name="section_options">Opções</string>
+    <string name="opt_clean">Remover parâmetros de rastreamento</string>
+    <string name="opt_clean_desc">Tira utm_*, fbclid, gclid e similares dos links</string>
+    <string name="opt_history">Guardar histórico de links</string>
+    <string name="opt_history_desc">Fica salvo só neste aparelho</string>
+
+    <!-- Lists -->
+    <string name="section_browsers">Navegadores exibidos na lista</string>
+    <string name="section_rules">Sites lembrados</string>
+    <string name="rules_empty">Nenhum site lembrado ainda. Ative \"Sempre usar para…\" na lista de navegadores.</string>
+    <string name="remove">Remover</string>
+    <string name="section_test">Testar</string>
+    <string name="test_hint">URL</string>
+    <string name="test_button">Testar seletor</string>
+    <string name="section_history">Links recentes</string>
+    <string name="history_empty">Nada por aqui ainda</string>
+    <string name="history_opened_with">Aberto com %1$s</string>
+    <string name="clear">Limpar</string>
+</resources>

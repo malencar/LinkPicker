@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LinkPicker</string>
+
+    <!-- Picker -->
+    <string name="chooser_title">Open link with</string>
+    <string name="chooser_always_for">Always use for %1$s</string>
+    <string name="copy_link">Copy link</string>
+    <string name="share_link">Share</string>
+    <string name="cancel">Cancel</string>
+    <string name="link_copied">Link copied</string>
+    <string name="no_browsers">No other browser is installed</string>
+    <string name="open_failed">Couldn\'t open this browser</string>
+
+    <!-- Default browser status -->
+    <string name="default_on_title">LinkPicker is your default browser</string>
+    <string name="default_on_desc">Every link you tap will ask which browser to open it with.</string>
+    <string name="default_off_title">LinkPicker is not your default browser</string>
+    <string name="default_off_desc">Set it as default so it can ask which browser to use whenever you tap a link.</string>
+    <string name="set_default">Set as default browser</string>
+    <string name="open_default_settings">Default apps settings</string>
+
+    <!-- Options -->
+    <string name="section_options">Options</string>
+    <string name="opt_clean">Remove tracking parameters</string>
+    <string name="opt_clean_desc">Strips utm_*, fbclid, gclid and similar from links</string>
+    <string name="opt_history">Keep link history</string>
+    <string name="opt_history_desc">Stored only on this device</string>
+
+    <!-- Lists -->
+    <string name="section_browsers">Browsers shown in the picker</string>
+    <string name="section_rules">Remembered sites</string>
+    <string name="rules_empty">No remembered sites yet. Turn on \"Always use for…\" in the picker.</string>
+    <string name="remove">Remove</string>
+    <string name="section_test">Try it</string>
+    <string name="test_hint">URL</string>
+    <string name="test_button">Test picker</string>
+    <string name="section_history">Recent links</string>
+    <string name="history_empty">Nothing here yet</string>
+    <string name="history_opened_with">Opened with %1$s</string>
+    <string name="clear">Clear</string>
+</resources>
