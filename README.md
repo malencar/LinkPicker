@@ -29,11 +29,23 @@ Package: `com.malencar.linkpicker`
 - `ChooserActivity` declares a VIEW intent filter for `http`/`https` with `BROWSABLE` + `DEFAULT`. That is what makes the app selectable as the default browser and lets it receive every link.
 - Installed browsers are found by querying a generic `https://www.example.com` VIEW intent: only apps that accept *any* web link match. LinkPicker excludes itself from the list.
 - A browser is launched with an explicit `ComponentName`, so the system default (LinkPicker) is bypassed and there is no loop.
-- `<queries>` in the manifest provides the package visibility required on Android 11+.
+- `<queries>` in the manifest provides the package visibility required on Android 11+ (including the two WhatsApp packages, `com.whatsapp` and `com.whatsapp.w4b`).
+- For WhatsApp hosts, `BrowserRepo.whatsappApps` checks which of those two packages can open the link and puts them before the browsers in the list.
+
+## WhatsApp vs WhatsApp Business
+
+If you have both WhatsApp and WhatsApp Business installed, Android picks one for `wa.me` links on its own, and it is often the wrong one. LinkPicker fixes that: for `wa.me`, `api.whatsapp.com`, `chat.whatsapp.com` and `web.whatsapp.com` links, every installed WhatsApp is listed at the top of the picker, above your browsers. Pick one, or turn on **Always use X for this site** to remember it.
+
+For these links to reach LinkPicker, turn off WhatsApp's own link handling:
+
+1. Settings > Apps > **WhatsApp** > Open by default > turn **Open supported links** off.
+2. Do the same for **WhatsApp Business**.
+
+(Menu names vary slightly by manufacturer.) LinkPicker must also be your default browser.
 
 ## Limitations (Android, not the app)
 
-- Links verified as **App Links** (e.g. youtube.com, maps links) may open in their own app and never reach a browser.
+- Links verified as **App Links** (e.g. youtube.com, maps links) may open in their own app and never reach a browser. For WhatsApp, see the steps above.
 - Apps that use **in-app browsers / Custom Tabs** (Instagram, Gmail, etc.) don't always go through the default browser.
 - Some manufacturers hide the role dialog; use the "Default apps settings" button in that case.
 
