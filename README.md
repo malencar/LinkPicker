@@ -7,6 +7,7 @@ Android app that asks **which browser to use** every time you tap a web link.
 - **Browser picker** on every http/https link (bottom sheet over the app you were in), listing all installed browsers
 - **Set as default browser** button (system dialog on Android 10+, default-apps settings otherwise)
 - **Always use X for this site** – per-domain rules, managed (and removable) in the app
+- **WhatsApp vs WhatsApp Business** – for wa.me / whatsapp.com links, both installed apps are listed so you pick which one opens the chat
 - **Most-used browsers first**, plus the option to hide browsers you never use
 - **Remove tracking parameters** (utm_*, fbclid, gclid, msclkid, ...) before opening
 - Real **host shown prominently** in the picker to help spot look-alike domains

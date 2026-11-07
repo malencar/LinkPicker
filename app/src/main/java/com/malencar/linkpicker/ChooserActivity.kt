@@ -71,10 +71,13 @@ class ChooserActivity : ComponentActivity() {
         val uri = if (prefs.cleanTracking) UrlUtils.clean(raw) else raw
         val host = UrlUtils.host(uri)
 
-        // 1) A remembered browser for this site?
+        // WhatsApp links: offer each installed WhatsApp (normal / Business) alongside browsers.
+        val whatsapps = BrowserRepo.whatsappApps(this, uri)
+
+        // 1) A remembered browser/app for this site?
         if (host != null) {
             prefs.getRule(host)?.let { pkg ->
-                val target = BrowserRepo.installed(this, prefs, includeHidden = true)
+                val target = (whatsapps + BrowserRepo.installed(this, prefs, includeHidden = true))
                     .firstOrNull { it.packageName == pkg }
                 if (target != null) {
                     launch(uri, target)
@@ -85,7 +88,7 @@ class ChooserActivity : ComponentActivity() {
         }
 
         // 2) Which browsers can we offer?
-        val browsers = BrowserRepo.installed(this, prefs)
+        val browsers = whatsapps + BrowserRepo.installed(this, prefs)
         when (browsers.size) {
             0 -> {
                 Toast.makeText(this, R.string.no_browsers, Toast.LENGTH_LONG).show()

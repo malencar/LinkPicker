@@ -63,6 +63,38 @@ object BrowserRepo {
             )
     }
 
+    private val whatsappHosts = setOf(
+        "wa.me", "api.whatsapp.com", "chat.whatsapp.com", "web.whatsapp.com", "whatsapp.com",
+    )
+    private val whatsappPackages = listOf("com.whatsapp", "com.whatsapp.w4b")
+
+    /**
+     * For WhatsApp links: every installed WhatsApp flavour (normal and Business) that can open
+     * [uri]. Empty for any other link.
+     */
+    fun whatsappApps(context: Context, uri: Uri): List<BrowserInfo> {
+        val host = uri.host?.lowercase()?.removePrefix("www.") ?: return emptyList()
+        if (host !in whatsappHosts) return emptyList()
+        val pm = context.packageManager
+        return whatsappPackages.mapNotNull { pkg ->
+            val probe = Intent(Intent.ACTION_VIEW, uri).setPackage(pkg)
+            @Suppress("DEPRECATION")
+            val matches: List<ResolveInfo> = if (Build.VERSION.SDK_INT >= 33) {
+                pm.queryIntentActivities(probe, PackageManager.ResolveInfoFlags.of(0L))
+            } else {
+                pm.queryIntentActivities(probe, 0)
+            }
+            val ri = matches.firstOrNull { it.activityInfo?.exported == true }
+                ?: return@mapNotNull null
+            BrowserInfo(
+                label = ri.loadLabel(pm).toString(),
+                packageName = pkg,
+                component = ComponentName(pkg, ri.activityInfo.name),
+                icon = ri.loadIcon(pm),
+            )
+        }
+    }
+
     /** Opens [uri] directly in the chosen browser (bypassing the system default). */
     fun open(context: Context, uri: Uri, browser: BrowserInfo) {
         val intent = Intent(Intent.ACTION_VIEW, uri)

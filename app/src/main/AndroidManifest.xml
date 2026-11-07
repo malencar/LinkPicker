@@ -3,6 +3,9 @@
 
     <!-- Lets the app see which browsers are installed (Android 11+ package visibility). -->
     <queries>
+        <!-- WhatsApp and WhatsApp Business, so WhatsApp links can offer both. -->
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.BROWSABLE" />
